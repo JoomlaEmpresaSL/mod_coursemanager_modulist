@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/module-install.dtd">
+<install version="1.5" type="module" method ="upgrade" client="site">
+	<name>Course Manager ModuList Module</name>
+	<author>José A. Cidre Bardelás</author>
+	<authorEmail>info@joomlaempresa.com</authorEmail>
+	<authorUrl>http://joomlaempresa.es</authorUrl>
+	<creationDate>09-2011</creationDate>
+	<copyright>Copyright (C) 2011 Joomla Empresa e José A. Cidre Bardelás - All Rights Reserved</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+	<version>1.0.0</version>
+	<description>MOD_CML_DESCRICOM</description>
+	<files>
+		<filename module="mod_coursemanager_modulist">mod_coursemanager_modulist.xml</filename>
+		<filename>mod_coursemanager_modulist.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>paginacom_ajax.php</filename>
+		<folder>tmpl</folder>
+		<folder>elements</folder>
+		<folder>imagens</folder>
+	</files>
+	<languages folder="idiomas">
+		<language tag="en-GB">en-GB.mod_coursemanager_modulist.ini</language>
+		<language tag="gl-ES">gl-ES.mod_coursemanager_modulist.ini</language>
+		<language tag="ca-ES">ca-ES.mod_coursemanager_modulist.ini</language>
+		<language tag="es-ES">es-ES.mod_coursemanager_modulist.ini</language>
+		<language tag="pt-PT">pt-PT.mod_coursemanager_modulist.ini</language>
+		<language tag="pt-BR">pt-BR.mod_coursemanager_modulist.ini</language>
+	</languages>
+	<params addpath="/modules/mod_coursemanager_modulist/elements">
+		<param name="@spacer" type="spacer" default="MOD_CML_ITEMS_TIT" />
+		<param name="elementos" type="text" size="6" default="5" label="MOD_CML_ITEMS" description="MOD_CML_ITEMS_DET" />
+		<param name="elementos_pagina" type="text" size="6" default="5" label="MOD_CML_PAGECOUNT" description="MOD_CML_PAGECOUNT_DET" />
+		<param name="tipo_elementos" type="list" default="recentes" label="MOD_CML_ITEMTYPE" description="MOD_CML_ITEMTYPE_DET">
+			<option value="recentes">MOD_CML_MOSTRECENT</option>
+			<option value="populares">MOD_CML_MOSTPOPULAR</option>
+			<option value="aleatorios">MOD_CML_RANDOM</option>
+		</param>
+		<param name="ordering" type="list" default="c_dsc" label="MOD_CML_ORDER" description="MOD_CML_ORDER_TIT">
+			<option value="c_dsc">MOD_CML_RECENTLYADDED</option>
+			<option value="m_dsc">MOD_CML_RECENTLYMODIFIED</option>
+		</param>
+		<param name="catid" type="text" default="" label="MOD_CML_CATID" description="MOD_CML_CATID_DET" />
+		<param name="@spacer" type="spacer" default="MOD_CML_AJAXPAGCONFIG_TIT"/>
+		<param name="amplo_rolagem" type="text" size="6" default="300" label="MOD_CML_SLIDERWIDTH" description="MOD_CML_SLIDERWIDTH_DET" />
+		<param name="efecto_transicom" type="list" default="0" label="MOD_CML_TRANS" description="MOD_CML_TRANS_DET">
+			<option value="0">MOD_CML_SLIDE</option>
+			<option value="1">MOD_CML_FADE</option>
+		</param>
+		<param name="tempo_fundido" type="text" size="6" default="500" label="MOD_CML_FADETIME" description="MOD_CML_FADETIME_DET" />
+		<param name="modo_slide" type="list" default="horizontal" label="MOD_CML_SLIDEMODE" description="MOD_CML_SLIDEMODE_DET">
+			<option value="horizontal">MOD_CML_SLIDEMODEHOR</option>
+			<option value="vertical">MOD_CML_SLIDEMODEVER</option>
+		</param>
+		<param name="tipo_slide" type="list" default="Expo.easeOut" label="MOD_CML_SLIDETYPE" description="MOD_CML_SLIDETYPE_DET">
+			<option value="linear">MOD_CML_SLIDETYPELINEAR</option>
+			<option value="Bounce.easeOut">MOD_CML_SLIDETYPEBOUNCE1</option>
+			<option value="Elastic.easeOut">MOD_CML_SLIDETYPEELASTIC1</option>
+			<option value="Expo.easeOut">MOD_CML_SLIDETYPEEXPO1</option>
+			<option value="Back.easeOut">MOD_CML_SLIDETYPEBACK1</option>
+		</param>
+		<param name="@spacer" type="spacer" default="MOD_CML_ASPECT_TIT"/>
+		<param name="texto_descricom" type="textarea" rows="5" cols="30" default="" label="MOD_CML_DESCTEXT" description="MOD_CML_DESCTEXT_DET" />
+		<param name="caracteres_curso" type="text" size="6" default="" label="MOD_CML_MAXCHARCOURSE" description="MOD_CML_MAXCHARCOURSE_DET" />
+		<param name="caracteres_categoria" type="text" size="6" default="" label="MOD_CML_MAXCHARCAT" description="MOD_CML_MAXCHARCAT_DET" />
+		<param name="mostrar_categoria" type="list" default="1" label="MOD_CML_SHOWCAT" description="MOD_CML_SHOWCAT_DET">
+			<option value="1">YES</option>
+			<option value="0">NO</option>
+		</param>
+		<param name="mostrar_taboa" type="list" default="1" label="MOD_CML_DISPLAYFORMAT" description="MOD_CML_DISPLAYFORMAT_DET">
+			<option value="1">MOD_CML_TABLE</option>
+			<option value="0">MOD_CML_LIST</option>
+		</param>
+		<param name="mostrar_icone" type="list" default="1" label="MOD_CML_SHOWICON" description="MOD_CML_SHOWICON_DET">
+			<option value="1">YES</option>
+			<option value="0">NO</option>
+		</param>
+		<param name="alinha_taboa" type="list" default="centro" label="MOD_CML_TABLEALIGN" description="MOD_CML_TABLEALIGN_DET">
+			<option value="esquerda">LEFT</option>
+			<option value="centro">CENTER</option>
+			<option value="direita">RIGHT</option>
+		</param>
+		<param name="margem_sup_taboa" type="text" size="6" default="5" label="MOD_CML_TOP" description="MOD_CML_TOP_DET" />
+		<param name="margem_inf_taboa" type="text" size="6" default="5" label="MOD_CML_BOTTOM" description="MOD_CML_BOTTOM_DET" />
+		<param name="amplo_taboa" type="text" size="6" default="" label="MOD_CML_TABLEWIDTH" description="MOD_CML_TABLEWIDTH_DET" />
+		<param name="amplo_cela_curso" type="text" size="6" default="" label="MOD_CML_COURSECELLWIDTH" description="MOD_CML_COURSECELLWIDTH_DET" />
+		<param name="amplo_cela_categoria" type="text" size="6" default="" label="MOD_CML_CATCELLWIDTH" description="MOD_CML_CATCELLWIDTH_DET" />
+		<param name="amplo_cela_icone" type="text" size="6" default="" label="MOD_CML_ICONCELLWIDTH" description="MOD_CML_ICONCELLWIDTH_DET" />
+		<param name="cor_taboa_fondo" type="colorpicker" default="#FFFFFF" label="MOD_CML_TABLEBACKCOLOR" description="MOD_CML_TABLEBACKCOLOR_DET" />
+		<param name="cor_cabecalho_fondo" type="colorpicker" default="#444444" label="MOD_CML_TABLETITBACKCOLOR" description="MOD_CML_TABLETITBACKCOLOR_DET" />
+		<param name="cor_cabecalho_texto" type="colorpicker" default="#FFFFFF" label="MOD_CML_TABLETITCOLOR" description="MOD_CML_TABLETITCOLOR_DET" />
+		<param name="cor_celas_fondo" type="colorpicker" default="#C1D2E6" label="MOD_CML_TABLECELLSBACKCOLOR" description="MOD_CML_TABLECELLSBACKCOLOR_DET" />
+		<param name="cor_celas_texto" type="colorpicker" default="#000000" label="MOD_CML_TABLECELLSCOLOR" description="MOD_CML_TABLECELLSCOLOR_DET" />
+		<param name="cor_celas_texto_pairado" type="colorpicker" default="#FFFFFF" label="MOD_CML_TABLECELLSMOVERCOLOR" description="MOD_CML_TABLECELLSMOVERCOLOR_DET" />
+		<param name="itemid" type="text" default="" label="MOD_CML_ITEMID" description="MOD_CML_ITEMID_DET" />
+	</params>
+	<params group="advanced">
+		<param name="cache" type="list" default="1" label="CACHING" description="SELECT WHETHER TO CACHE THE CONTENT OF THIS MODULE">
+			<option value="1">Use global</option>
+			<option value="0">No caching</option>
+		</param>
+		<param name="cache_time" type="text" default="900" label="CACHE TIME" description="THE TIME BEFORE THE MODULE IS RECACHED" />
+	</params>
+</install>
